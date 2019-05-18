@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-12">
+    <!--<img src="https://www.bbcgoodfood.com/sites/default/files/categories/categories-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg" alt="" class="img-responsive" style="max-height: 100px">-->
+    <img [src]="recipeDetails.recipeImageUrl"  alt="{{recipeDetails.recipeName}}" class="img-responsive img-rounded" style="max-height: 250px">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <h1>{{recipeDetails.recipeName}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    {{recipeDetails.recipeDescription}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let ing of recipeDetails.ingredients">{{ing.ingredientName}}({{ing.ingredientAmount}})</li>
+  </ul>
+</div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="btn-group" appDropdown>
+          <button class="btn btn-primary dropdown-toggle">Manage Recipe<span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li> <a style="cursor: pointer" (click)="toAddIntoShoppingList()">To Shopping List</a></li>
+            <li> <a style="cursor: pointer" (click)="onEdit()">Edit Recipe</a></li>
+            <li> <a style="cursor: pointer" (click)="onDelete()">Delete Recipe</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
